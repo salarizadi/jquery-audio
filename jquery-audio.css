@@ -1,0 +1,145 @@
+/**
+ *  Copyright (c) 2023
+ *  @Version    : 1.0.0
+ *  @Repository : https://github.com/salarizadi/jquery-audio
+ *  @Author     : https://salarizadi.github.io
+ */
+:root {
+    --audio-range-base: #e6e8f3;
+    --audio-range-second: #3d78b1;
+    --audio-range-trackball: #3d78b1;
+    --audio-range-border-trackball: var(--audio-range-trackball);
+}
+.audio {
+    width: 230px;
+    height: 55px;
+    background: white;
+    display: flex !important;
+    margin: 0;
+    border-radius: 6px;
+    align-items: center;
+    padding: 0 10px;
+    direction: ltr;
+}
+.audio button {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background: #3d78b1;
+    color: white;
+}
+.audio button svg {
+    width: 14px;
+    height: 18px;
+    fill: white;
+}
+.audio button svg.play {
+    position: relative;
+    left: 2px;
+}
+.audio input[type=range] {
+    -webkit-appearance: none;
+    position: relative;
+    width: 120px;
+    margin: 0 10px;
+}
+.audio input[type=range]:before {
+    position: absolute;
+    content: "";
+    height: 5px;
+    background: var(--audio-range-second) !important;
+    border-radius: 6px;
+}
+.audio input[type=range]::-webkit-slider-runnable-track {
+    background: var(--audio-range-base);
+    height: 5px;
+    border-radius: 6px;
+}
+.audio input[type=range]::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    -webkit-appearance: none;
+    margin-top: -5px;
+    z-index: 10;
+    position: relative;
+    transition: 0.5s all ease;
+    background: var(--audio-range-trackball);
+    border: 2px solid var(--audio-range-border-trackball)
+}
+.audio input[type=range]::-webkit-slider-thumb:active,
+.audio input[type=range]::-webkit-slider-thumb:focus,
+.audio input[type=range]::-webkit-slider-thumb:hover {
+    outline: none;
+    background: var(--audio-range-trackball)
+}
+.audio span {
+    font-size: 11px;
+    position: relative;
+    top: 2px;
+}
+.audio .rotating {
+    -webkit-animation: rotating 2s linear infinite !important;
+    -moz-animation: rotating 2s linear infinite !important;
+    -ms-animation: rotating 2s linear infinite !important;
+    -o-animation: rotating 2s linear infinite !important;
+    animation: rotating 2s linear infinite !important;
+}
+.audio svg.download {
+    width: 40px;
+    fill: white;
+    stroke: white;
+}
+.audio svg.animate.download path.arrow {
+    animation: download 1s linear infinite;
+}
+.audio svg.animate.download path.disk {
+    animation: download-disk 1s linear infinite;
+}
+@keyframes download-disk {
+    0%, 24%, 40% ,100% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(1px);
+    }
+}
+@keyframes download {
+    0%, 50%, 100% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(2px);
+    }
+    75% {
+        transform: translateY(-2px);
+    }
+}
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg) !important;
+        -o-transform: rotate(0deg) !important;
+        transform: rotate(0deg) !important;
+    }
+    to {
+        -webkit-transform: rotate(360deg) !important;
+        -o-transform: rotate(360deg) !important;
+        transform: rotate(360deg) !important;
+    }
+}
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
